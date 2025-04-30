@@ -1,0 +1,8 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - vegaproject.io_calculationbulkfactories.yaml
+  - vegaproject.io_calculationbulks.yaml
+  - vegaproject.io_calculations.yaml
+  - vegaproject.io_workerpools.yaml

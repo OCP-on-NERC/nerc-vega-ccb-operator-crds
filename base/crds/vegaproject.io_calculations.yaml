@@ -1,0 +1,110 @@
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.16.3
+  name: calculations.vegaproject.io
+spec:
+  group: vegaproject.io
+  names:
+    kind: Calculation
+    listKind: CalculationList
+    plural: calculations
+    shortNames:
+    - calc
+    singular: calculation
+  scope: Namespaced
+  versions:
+  - name: v1
+    schema:
+      openAPIV3Schema:
+        properties:
+          apiVersion:
+            description: |-
+              APIVersion defines the versioned schema of this representation of an object.
+              Servers should convert recognized schemas to the latest internal value, and
+              may reject unrecognized values.
+              More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+            type: string
+          assign:
+            type: string
+          input_files:
+            properties:
+              files:
+                items:
+                  type: string
+                type: array
+              symlink:
+                type: boolean
+            type: object
+          kind:
+            description: |-
+              Kind is a string value representing the REST resource this object represents.
+              Servers may infer this from the endpoint the client submits requests to.
+              Cannot be updated.
+              In CamelCase.
+              More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+            type: string
+          metadata:
+            type: object
+          output_files_regex:
+            type: string
+          phase:
+            type: string
+          pipeline:
+            type: string
+          spec:
+            properties:
+              params:
+                properties:
+                  log_g:
+                    type: number
+                  teff:
+                    type: number
+                type: object
+              steps:
+                items:
+                  properties:
+                    args:
+                      items:
+                        type: string
+                      type: array
+                    command:
+                      type: string
+                    status:
+                      type: string
+                  required:
+                  - args
+                  - command
+                  type: object
+                type: array
+            type: object
+          status:
+            properties:
+              completionTime:
+                description: CompletionTime is the timestamp for when the job goes
+                  to a final state
+                format: date-time
+                type: string
+              pendingTime:
+                description: PendingTime is the timestamp for when the job moved from
+                  triggered to pending
+                format: date-time
+                type: string
+              startTime:
+                description: |-
+                  Conditions represent the latest available observations of an object's current state:
+                  StartTime is equal to the creation time of the Calculation
+                format: date-time
+                type: string
+            type: object
+          worker_pool:
+            type: string
+        required:
+        - assign
+        - spec
+        - worker_pool
+        type: object
+    served: true
+    storage: true
