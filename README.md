@@ -1,19 +1,10 @@
-# moc-templates
+# nerc-vega-ccb-operator-crds
 
-This repository serves two purposes:
+This repository contains the requisite CRDs in order for vega-project members
+to run their ccb-operator in their namespace on the NERC OCP cluster.
 
-- It may be used as a template repository when creating new repositories in the [CCI-MOC][] organization.
-- It is the canonical location of the `LICENSE` and `CONTRIBUTING.md` files.
-
-[cci-moc]: https://github.com/CCI-MOC/
+See https://github.com/CCI-MOC/ops-issues/issues/1500
 
 ## Contributing
 
-We'd love to have you contribute! Please refer to our [contribution
-guidelines](CONTRIBUTING.md) for details.
-
-## License
-
-[Apache 2.0 License](LICENSE).
-
-The code is provided as-is with no warranties.
+Please refer to our [contribution guidelines](CONTRIBUTING.md) for details.
