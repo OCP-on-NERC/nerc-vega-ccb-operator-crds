@@ -5,3 +5,4 @@ commonLabels:
 
 resources:
   - crds
+  - rbac.authorization.k8s.io/clusterroles
