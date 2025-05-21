@@ -13,8 +13,4 @@ rules:
   - calculationbulkfactories
   - workerpools
   verbs:
-  - get
-  - list
-  - watch
-  - create
-  - delete
+  - "*"
